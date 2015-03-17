@@ -1,0 +1,4 @@
+VER=4.3.33really4.3.30
+RVER=4.3.30
+REL=1
+TARBALL="ftp://ftp.gnu.org/gnu/bash/bash-$RVER.tar.gz"

@@ -1,0 +1,8 @@
+PKGNAME=bash
+PKGSEC=shells
+PKGDEP="glibc readline"
+PKGDES="Bourne Again SHell"
+RPMEXTRAPROVIDE="/bin/sh /bin/bash /sbin/bash"
+
+AUTOTOOLS_AFTER="--bindir=/usr/bin --with-curses --enable-readline --without-bash-malloc --with-installed-readline"
+ABSHADOW=no
