@@ -1,0 +1,6 @@
+PKGNAME=binutils
+PKGVER=2.25
+PKGREL=4
+PKGSEC=devel
+PKGDEP="file zlib"
+PKGDES="Binary utils"

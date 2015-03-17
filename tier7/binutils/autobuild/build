@@ -1,0 +1,26 @@
+rm -fv etc/standards.info
+sed -i.bak '/^INFO/s/standards.info //' etc/Makefile.in
+
+mkdir binutils-build
+pushd binutils-build
+
+../configure --prefix=/usr \
+             --with-lib-path=/usr/lib \
+             --with-bugurl=https://bugs.anthonos.org/ \
+             --enable-threads --enable-shared --with-pic \
+             --enable-ld=default --enable-gold --enable-plugins \
+             --disable-werror --enable-lto &&
+
+make configure-host $ABMK &&
+make tooldir=/usr $ABMK &&
+
+make prefix=`pwd`/../abdist/usr tooldir=`pwd`/../abdist/usr install $ABMK &&
+
+popd
+
+rm abdist/usr/share/man/man1/{dlltool,nlmconv,windres,windmc}*
+rm abdist/usr/share/info/{configure,standards}.info
+
+rm abdist/usr/lib/lib{bfd,opcodes}.so
+
+rm -rf abdist/usr/lib/*.a
