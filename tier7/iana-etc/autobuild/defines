@@ -1,0 +1,4 @@
+PKGNAME=iana-etc
+PKGDEP=
+PKGDES="Iana ETC"
+PKGSEC=misc

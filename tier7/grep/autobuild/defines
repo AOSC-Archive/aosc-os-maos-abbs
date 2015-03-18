@@ -1,0 +1,5 @@
+PKGNAME=grep
+PKGSEC=utils
+PKGDES="a string searcher"
+PKGDEP="glibc"
+AUTOTOOLS_AFTER="--without-included-regex --disable-perl-regexp"
