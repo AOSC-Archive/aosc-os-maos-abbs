@@ -1,0 +1,5 @@
+PKGNAME=bison
+PKGVER=3.0.4
+PKGSEC=misc
+PKGDEP="m4"
+PKGDES="the GNU general purpose parser generator"
