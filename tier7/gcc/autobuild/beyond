@@ -1,0 +1,1 @@
+chmod 755 abdist/usr/lib{,64}/libgcc_s.so.1 || echo Never mind

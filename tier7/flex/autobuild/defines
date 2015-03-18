@@ -1,0 +1,6 @@
+PKGNAME=flex
+PKGVER=2.5.39
+PKGREL=2
+PKGDES="a LEX replacement"
+PKGDEP="m4"
+PKGSEC=devel

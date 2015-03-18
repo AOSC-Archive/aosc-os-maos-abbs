@@ -1,0 +1,25 @@
+mkdir build
+cd build
+../configure  \
+    --prefix=/usr          \
+    --libdir=/usr/lib      \
+    --enable-kernel=2.6.32 \
+    --with-headers=/usr/include \
+    --with-bugurl=https://bugs.anthonos.org/ \
+    --enable-add-ons \
+    --enable-obsolete-rpc \
+    --enable-bind-now \
+    --enable-stackguard-randomization \
+    --disable-profiling \
+    --enable-lock-elision \
+    --libexecdir=/usr/lib/glibc &&
+echo "build-programs=no" >> configparms &&
+make $ABMK &&
+sed -i "/build-programs=/s#no#yes#" configparms &&
+echo "CC += -fstack-protector-strong -D_FORTIFY_SOURCE=2" >> configparms &&
+echo "CXX += -fstack-protector-strong -D_FORTIFY_SOURCE=2" >> configparms &&
+make $ABMK &&
+make install install_root=`pwd`/../abdist 
+cd ..
+
+

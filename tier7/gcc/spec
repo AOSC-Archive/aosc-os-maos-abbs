@@ -1,0 +1,5 @@
+VER=5.0.0git20150116
+REL=1
+
+# Temp!!! Should be fixed!!!
+SRCTBL="http://repo.anthonos.org/maos-exp/01_source/tier-7-system-core/gcc-5.0.0-20150116.tar.bz2"

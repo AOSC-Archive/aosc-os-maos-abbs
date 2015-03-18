@@ -1,0 +1,5 @@
+PKGNAME=gmp
+PKGSEC=libs
+PKGDEP=glibc
+PKGDES="GNU Multiprecision library"
+AUTOTOOLS_AFTER="--enable-cxx"

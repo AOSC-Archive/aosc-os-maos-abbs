@@ -1,0 +1,33 @@
+sed -i 's@\./fixinc\.sh@-c true@' gcc/Makefile.in
+sed -i "/ac_cpp=/s/\$CPPFLAGS/\$CPPFLAGS -O2/" {libiberty,gcc}/configure
+
+echo 5.0.0 > gcc/BASE-VER
+echo 'Mobile AOSC OS Experimental' > gcc/DEV-PHASE
+
+mkdir -p build
+cd build
+../configure --prefix=/usr \
+      --libdir=/usr/lib --libexecdir=/usr/lib \
+      --mandir=/usr/share/man --infodir=/usr/share/info \
+      --with-bugurl=https://bugs.anthonos.org/ \
+      --enable-languages=c,c++,fortran,lto \
+      --enable-shared --enable-threads=posix \
+      --with-system-zlib --enable-__cxa_atexit \
+      --disable-libunwind-exceptions --enable-clocale=gnu \
+      --disable-libstdcxx-pch --enable-libssp \
+      --enable-plugin --enable-initfini-array \
+      --disable-libgcj --without-isl \
+      --enable-gnu-indirect-function \
+      --with-tune=slm --with-arch=x86-64 \
+      --enable-gnu-unique-object --enable-linker-build-id \
+      --enable-lto --enable-install-libiberty \
+      --with-linker-hash-style=gnu \
+      --disable-multilib --disable-werror \
+      --enable-checking=release &&
+make $ABMK &&
+
+make install DESTDIR=`pwd`/../abdist
+
+
+cd ..
+

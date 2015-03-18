@@ -1,0 +1,15 @@
+install -dm755 abdist/etc &&
+touch abdist/etc/ld.so.conf 
+
+mkdir -p abdist/usr/lib/{locale,systemd/system,tmpfiles.d} &&
+mkdir -p abdist/usr/lib/systemd/system &&
+
+install -m644 nscd/nscd.conf abdist/etc/nscd.conf &&
+install -m644 nscd/nscd.service abdist/usr/lib/systemd/system &&
+install -m644 nscd/nscd.tmpfiles abdist/usr/lib/tmpfiles.d/nscd.conf 
+
+rm abdist/usr/lib/lib{anl,BrokenLocale,nsl,resolv,rt,util}.a
+
+install -m644 posix/gai.conf abdist/etc/gai.conf
+
+chmod 755 `find abdist/usr/lib -name '*.so*' -type f`

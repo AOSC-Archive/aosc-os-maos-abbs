@@ -1,0 +1,4 @@
+./configure --host=x86_64-unknown-linux-gnu --prefix=/usr \
+	--enable-cxx 
+make $ABMK
+make install DESTDIR=`pwd`/abdist

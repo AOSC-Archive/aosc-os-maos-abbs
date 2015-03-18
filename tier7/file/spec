@@ -1,0 +1,3 @@
+VER=5.22
+REL=2
+SRCTBL="ftp://ftp.astron.com/pub/file/file-$VER.tar.gz"

@@ -1,0 +1,3 @@
+./configure --prefix=/usr
+make $ABMK
+make install DESTDIR=`pwd`/abdist
